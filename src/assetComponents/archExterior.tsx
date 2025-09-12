@@ -1,6 +1,3 @@
-import img1 from "/assets/images/ArchExterior/farmhouse_1.webp"
-import img2 from "/assets/images/ArchExterior/farmhouse_2.webp"
-import vid3 from "/assets/images/ArchExterior/farhouse.mp4"
 
 type MediaItem = {
   type: 'image' | 'video'
@@ -11,17 +8,17 @@ type MediaItem = {
 export const archExterior: MediaItem[] = [
   {
     type: "image",
-    src: img1,
+    src: "https://res.cloudinary.com/dsgbgr8or/image/upload/v1757688342/farmhouse_1_rdvkax.webp",
     caption: "Front Elevation",
   },
   {
     type: "image",
-    src: img2,
+    src: "https://res.cloudinary.com/dsgbgr8or/image/upload/v1757688343/farmhouse_2_bw3sad.webp",
     caption: "Evening Render",
   },
   {
     type: "video",
-    src: vid3,
+    src:"https://res.cloudinary.com/dsgbgr8or/video/upload/v1757688371/farhouse_rzrujx.mp4",
     caption: "Courtyard",
   },
 ];

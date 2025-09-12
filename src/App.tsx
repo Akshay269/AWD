@@ -15,7 +15,7 @@ function App() {
       <div className="app-root">
         <Navbar />
         <main>
-          <Intro videoSrc="/assets/videos/Hero.mp4" poster="/assets/images/LOGO_WHITE.png" />
+          <Intro videoSrc="https://res.cloudinary.com/dsgbgr8or/video/upload/v1757688408/Hero_xvrxvt.mp4" poster="/assets/images/LOGO_WHITE.png" />
           <CubeSection />
           <About />
           <Expertise />
