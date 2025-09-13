@@ -13,22 +13,31 @@ export type MediaItem = {
 export const Carousel = ({ items }: { items: MediaItem[] }) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const { open } = useLightbox();
-  const scrollBy = (delta: number) => {
+
+    const scrollBy = (direction: number) => {
     const el = trackRef.current;
     if (!el) return;
-    el.scrollTo({ left: el.scrollLeft + delta, behavior: "smooth" });
+    const slide = el.querySelector<HTMLElement>(".carousel__slide");
+    const slideWidth = slide?.offsetWidth || 360; // fallback
+    el.scrollBy({ left: slideWidth * direction, behavior: "smooth" });
   };
+
   const handleOpen = (item: MediaItem) => () => open(item);
+
+
   return (
+   
     <div className="carousel">
       <button
         className="carousel__btn"
         aria-label="Previous"
-        onClick={() => scrollBy(-360)}
+        onClick={() => scrollBy(-1)}
       >
         ‹
       </button>
+
       <div ref={trackRef} className="carousel__track">
+        
         {items.map((item, idx) => (
           <div key={idx} className="carousel__slide">
             <figure
@@ -58,13 +67,15 @@ export const Carousel = ({ items }: { items: MediaItem[] }) => {
           </div>
         ))}
       </div>
+
       <button
         className="carousel__btn"
         aria-label="Next"
-        onClick={() => scrollBy(360)}
+        onClick={() => scrollBy(1)}
       >
         ›
       </button>
     </div>
+    
   );
 };
