@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import LOGO_WHITE from "/assets/images/LOGO_WHITE.png";
 
 
 const useMediaQuery = (query: string) => {
@@ -138,7 +137,7 @@ export const Navbar = () => {
             }}
           >
             <motion.img
-              src={LOGO_WHITE}
+              src="https://res.cloudinary.com/dsgbgr8or/image/upload/v1757688347/LOGO_WHITE_snqxod.svg"
               style={{
                 width: isMobile ? "60px" : "90px",
                 height: "auto",

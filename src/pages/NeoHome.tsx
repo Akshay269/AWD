@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../animation/gsapSetup";
-import herovideo from "/assets/videos/Hero.mp4";
+
 
 const getReducedMotion = () =>
   typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -50,7 +50,7 @@ const ThreeHero: React.FC = () => {
   return (
     <section id="intro" className="neo-hero">
       <video className="neo-hero__video" autoPlay muted loop playsInline poster="/assets/images/LOGO_WHITE.png">
-        <source src={herovideo} type="video/mp4" />
+        <source src="https://res.cloudinary.com/dsgbgr8or/video/upload/v1757688408/Hero_xvrxvt.mp4" type="video/mp4" />
       </video>
       <div ref={containerRef} className="neo-hero__content">
         <div ref={panelRef} className="panel3d panel3d--glass">
