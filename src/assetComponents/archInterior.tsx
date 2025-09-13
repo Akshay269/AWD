@@ -7,7 +7,7 @@ type MediaItem = {
 };
 export const archInterior: MediaItem[] = [
   {
-    type: "image",
+    type: "video",
     src: "https://res.cloudinary.com/dsgbgr8or/video/upload/v1757688349/video_ygx0hg.webm",
     caption: "Front Elevation",
   },
