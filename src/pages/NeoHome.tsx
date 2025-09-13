@@ -49,15 +49,9 @@ const ThreeHero: React.FC = () => {
 
   return (
     <section id="intro" className="neo-hero">
-      <video className="neo-hero__video" autoPlay muted loop playsInline poster="/assets/images/LOGO_WHITE.png">
-        <source src="https://res.cloudinary.com/dsgbgr8or/video/upload/v1757688408/Hero_xvrxvt.mp4" type="video/mp4" />
+      <video className="neo-hero__video" autoPlay muted loop playsInline poster="">
+        <source src="https://res.cloudinary.com/dsgbgr8or/video/upload/v1757789868/main_video-1_1_huokhx.mp4" type="video/mp4" />
       </video>
-      <div ref={containerRef} className="neo-hero__content">
-        <div ref={panelRef} className="panel3d panel3d--glass">
-          <div ref={titleRef} className="neo-title">A.W Designers</div>
-          <div className="neo-sub">Envision. Design. Build.</div>
-        </div>
-      </div>
     </section>
   );
 };

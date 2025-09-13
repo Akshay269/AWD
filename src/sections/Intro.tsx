@@ -1,11 +1,9 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FadeIn, SlideUp } from "../components/ScrollAnimations";
-import TypingText from "../components/TypingText";
 
 interface IntroProps {
-  videoSrc: string; // static path, e.g., "/assets/videos/Hero.mp4"
-  poster?: string;  // optional poster image
+  videoSrc: string; 
+  poster?: string;  
 }
 
 // Hook for detecting screen size
@@ -79,7 +77,7 @@ export const Intro: React.FC<IntroProps> = ({ videoSrc, poster }) => {
       <motion.div className="hero__media" style={{ y, scale }}>
         <LazyVideo
           src={videoSrc}
-          poster={poster || "/assets/images/LOGO_WHITE.png"}
+          poster={poster || ""}
           autoPlay
           loop
           muted
@@ -97,7 +95,7 @@ export const Intro: React.FC<IntroProps> = ({ videoSrc, poster }) => {
         className="container hero__content"
         style={{ y: contentY, textAlign: isMobile ? "center" : "left", padding: isMobile ? "0 16px" : 0 }}
       >
-        <FadeIn duration={1} delay={0.3}>
+        {/* <FadeIn duration={1} delay={0.3}>
           <motion.h1
             className="hero__title"
             initial={{ opacity: 0, y: 50 }}
@@ -106,19 +104,19 @@ export const Intro: React.FC<IntroProps> = ({ videoSrc, poster }) => {
           >
             A.W Designers
           </motion.h1>
-        </FadeIn>
+        </FadeIn> */}
 
-        <SlideUp duration={1} delay={0.8}>
+        {/* <SlideUp duration={1} delay={0.8}>
           <TypingText
             texts={["Envision.", "Design.", "Build."]}
             speed={100}
             fontSize={isMobile ? "clamp(16px,4.8vw,26px)" : "clamp(18px,2.2vw,28px)"}
             align={isMobile ? "center" : "left"}
           />
-        </SlideUp>
+        </SlideUp> */}
 
         {/* Floating Decorations */}
-        {!isMobile && (
+        {/* {!isMobile && (
           <>
             <motion.div
               className="hero-decoration"
@@ -153,8 +151,9 @@ export const Intro: React.FC<IntroProps> = ({ videoSrc, poster }) => {
               }}
             />
           </>
-        )}
+        )} */}
       </motion.div>
+      
     </section>
   );
 };
