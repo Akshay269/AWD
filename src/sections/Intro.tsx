@@ -97,7 +97,7 @@ export const Intro: React.FC<IntroProps> = ({ videoSrc, poster }) => {
         className="container hero__content"
         style={{ y: contentY, textAlign: isMobile ? "center" : "left", padding: isMobile ? "0 16px" : 0 }}
       >
-        <FadeIn duration={1} delay={4}>
+        <FadeIn duration={1} delay={6}>
           <motion.h1
             className="hero__title"
             initial={{ opacity: 0, y: 50 }}
@@ -108,7 +108,7 @@ export const Intro: React.FC<IntroProps> = ({ videoSrc, poster }) => {
           </motion.h1>
         </FadeIn>
 
-        <SlideUp duration={1} delay={4}>
+        <SlideUp duration={1} delay={6}>
           <TypingText
             texts={["Envision.", "Design.", "Build."]}
             speed={100}
