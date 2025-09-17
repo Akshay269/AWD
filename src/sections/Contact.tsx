@@ -24,7 +24,7 @@ const useMediaQuery = (query: string) => {
   return matches;
 };
 
-export const Contact = () => {
+ const Contact = () => {
   const isMobile = useMediaQuery("(max-width: 900px)");
 
   return (
@@ -178,3 +178,5 @@ export const Contact = () => {
     </section>
   );
 };
+
+export default Contact;

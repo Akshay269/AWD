@@ -21,7 +21,7 @@ const useMediaQuery = (query: string) => {
   return matches;
 };
 
-export const Work = () => {
+const Work = () => {
   const [active, setActive] = useState<"architectural" | "visualization">(
     "visualization"
   );
@@ -95,3 +95,4 @@ export const Work = () => {
     </section>
   );
 };
+export default Work;

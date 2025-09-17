@@ -1,6 +1,6 @@
 import RedScrollCube from "../components/RedScrollCube";
 
-export const CubeSection = () => {
+const CubeSection = () => {
   return (
     <section
       id="cube"
@@ -16,3 +16,5 @@ export const CubeSection = () => {
     </section>
   );
 };
+
+export default CubeSection;

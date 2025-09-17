@@ -1,13 +1,41 @@
 import "./styles.css";
 import { Navbar } from "./components/Navbar";
-import { Intro } from "./sections/Intro";
-import { About } from "./sections/About";
-import { Expertise } from "./sections/Expertise";
-import { Work } from "./sections/Work";
-import { Contact } from "./sections/Contact";
-import { Footer } from "./sections/Footer";
+import  Intro  from "./sections/Intro";
 import { LightboxProvider } from "./components/LightboxContext";
-import { CubeSection } from "./sections/CubeSection";
+import { Suspense, lazy } from "react";
+import { useInView } from "react-intersection-observer";
+
+// Lazy load sections
+const CubeSection = lazy(() => import("./sections/CubeSection"));
+const About = lazy(() => import("./sections/About"));
+const Expertise = lazy(() => import("./sections/Expertise"));
+const Work = lazy(() => import("./sections/Work"));
+const Contact = lazy(() => import("./sections/Contact"));
+const Footer = lazy(() => import("./sections/Footer"));
+
+// Wrapper for intersection-based lazy rendering
+function LazySection({
+  children,
+  height = "400px",
+}: {
+  children: React.ReactNode;
+  height?: string;
+}) {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // load only once
+    rootMargin: "200px", // preload before visible
+  });
+
+  return (
+    <div ref={ref}>
+      {inView ? (
+        <Suspense fallback={<div style={{ height }} />}>{children}</Suspense>
+      ) : (
+        <div style={{ height }} />
+      )}
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -15,16 +43,38 @@ function App() {
       <div className="app-root">
         <Navbar />
         <main>
-          <Intro desktopVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758097779/website_avhwvn.webm" 
-  mobileVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758132494/website-mobile_vih5nc.webm" 
-  poster=""  />
-          <CubeSection />
-          <About />
-          <Expertise />
-          <Work />
-          <Contact />
+          {/* Hero Section loads immediately */}
+          <Intro
+            desktopVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758097779/website_avhwvn.webm"
+            mobileVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758132494/website-mobile_vih5nc.webm"
+            poster=""
+          />
+
+          {/* Lazy sections (load only when scrolled near) */}
+          <LazySection>
+            <CubeSection />
+          </LazySection>
+
+          <LazySection>
+            <About />
+          </LazySection>
+
+          <LazySection>
+            <Expertise />
+          </LazySection>
+
+          <LazySection>
+            <Work />
+          </LazySection>
+
+          <LazySection>
+            <Contact />
+          </LazySection>
+
+          <LazySection>
+            <Footer />
+          </LazySection>
         </main>
-        <Footer />
       </div>
     </LightboxProvider>
   );

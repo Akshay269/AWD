@@ -19,7 +19,7 @@ const useMediaQuery = (query: string) => {
   return matches;
 };
 
-export const Expertise = () => {
+ const Expertise = () => {
   const isMobile = useMediaQuery('(max-width: 900px)');
 
   const categories = [
@@ -121,3 +121,4 @@ export const Expertise = () => {
     </section>
   );
 };
+export default Expertise;

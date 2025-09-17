@@ -40,7 +40,7 @@ const StatCounter = ({ end, label, suffix = "+", durationMs = 1200 }: StatCounte
 };
 
 
-export const About = () => {
+ const About = () => {
   return (
     <section id="about" className="section section--light">
       <div className={`container`}>
@@ -89,3 +89,5 @@ export const About = () => {
     </section>
   );
 };
+
+export default About;

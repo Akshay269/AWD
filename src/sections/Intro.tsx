@@ -47,7 +47,7 @@ const LazyVideo = ({
   return <video ref={ref} src={isVisible ? src : undefined} poster={poster} {...props} />;
 };
 
-export const Intro: React.FC<IntroProps> = ({ desktopVideo, mobileVideo,poster }) => {
+ const Intro: React.FC<IntroProps> = ({ desktopVideo, mobileVideo,poster }) => {
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -162,3 +162,5 @@ export const Intro: React.FC<IntroProps> = ({ desktopVideo, mobileVideo,poster }
     </section>
   );
 };
+
+export default Intro;

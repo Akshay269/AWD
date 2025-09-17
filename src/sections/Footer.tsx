@@ -1,4 +1,4 @@
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className="footer">
       <div className="container footer__inner">
@@ -14,3 +14,5 @@ export const Footer = () => {
     </footer>
   )
 }
+
+export default Footer;
