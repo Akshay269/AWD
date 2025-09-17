@@ -23,7 +23,7 @@ const useMediaQuery = (query: string) => {
 
 export const Work = () => {
   const [active, setActive] = useState<"architectural" | "visualization">(
-    "architectural"
+    "visualization"
   );
   const isMobile = useMediaQuery("(max-width: 768px)");
 
@@ -51,18 +51,6 @@ export const Work = () => {
           }}
         >
           <button
-            className={`tab ${active === "architectural" ? "tab--active" : ""}`}
-            onClick={() => setActive("architectural")}
-            style={{
-              fontSize: isMobile ? "14px" : "16px",
-              padding: isMobile ? "12px 16px" : "10px 14px",
-              width: isMobile ? "100%" : "auto",
-              textAlign: "center",
-            }}
-          >
-            {isMobile ? "ARCHITECTURAL" : "ARCHITECTURAL PROJECT"}
-          </button>
-          <button
             className={`tab ${active === "visualization" ? "tab--active" : ""}`}
             onClick={() => setActive("visualization")}
             style={{
@@ -73,6 +61,18 @@ export const Work = () => {
             }}
           >
             {isMobile ? "3D VISUALIZATION" : "3D VISUALIZATION PROJECT"}
+          </button>
+          <button
+            className={`tab ${active === "architectural" ? "tab--active" : ""}`}
+            onClick={() => setActive("architectural")}
+            style={{
+              fontSize: isMobile ? "14px" : "16px",
+              padding: isMobile ? "12px 16px" : "10px 14px",
+              width: isMobile ? "100%" : "auto",
+              textAlign: "center",
+            }}
+          >
+            {isMobile ? "ARCHITECTURAL" : "ARCHITECTURAL PROJECT"}
           </button>
         </div>
 

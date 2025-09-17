@@ -3,6 +3,7 @@ import { SwipeReveal, SwipeTextReveal } from "../components/SwipeAnimations";
 import { useState, useEffect } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
+
 interface StatCounterProps {
   end: number;
   label: string;
@@ -53,7 +54,7 @@ export const About = () => {
               <SwipeTextReveal text="About Us" className="h2" />
             </StaggerItem>
             <StaggerItem>
-              <p>
+              <p style={{color:'#0e0c0a', fontFamily:'MyFont3'}}>
                 I'm Ar. Apurva Wasule, founder of AW Designers — a studio built on a
                 single vision: turning ideas into impactful spaces and visuals. With
                 3+ years of experience and over 50 completed projects in 3D
@@ -62,7 +63,7 @@ export const About = () => {
               </p>
             </StaggerItem>
             <StaggerItem>
-              <p>
+              <p style={{color:'#000000', fontFamily:'MyFont3'}}>
                 At AW Designers, we craft thoughtful, functional designs that
                 respond to context and client aspirations. Under this umbrella, AW
                 Renders brings those designs to life through high‑end 3D
@@ -71,7 +72,7 @@ export const About = () => {
               </p>
             </StaggerItem>
             <StaggerItem>
-              <p>
+              <p style={{color:'#0e0c0a', fontFamily:'MyFont3'}}>
                 Together, both reflect my belief that good design isn't just seen —
                 it's felt.
               </p>

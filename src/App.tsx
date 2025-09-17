@@ -15,7 +15,7 @@ function App() {
       <div className="app-root">
         <Navbar />
         <main>
-          <Intro videoSrc="https://res.cloudinary.com/dsgbgr8or/video/upload/v1757789868/main_video-1_1_huokhx.mp4" poster="" />
+          <Intro videoSrc="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758097779/website_avhwvn.webm" poster="" />
           <CubeSection />
           <About />
           <Expertise />

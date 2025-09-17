@@ -4,7 +4,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "../components/ScrollAnimations";
-import { SwipeReveal,SwipeTextReveal } from "../components/SwipeAnimations";
+import { SwipeReveal, SwipeTextReveal } from "../components/SwipeAnimations";
 import { useState, useEffect } from "react";
 
 // Hook for detecting screen size
@@ -50,21 +50,37 @@ export const Contact = () => {
 
             <StaggerItem>
               <div className="contact-list">
-                <div>📧 info@awdesigners.com</div>
-                <div>📱 +91 XXXXX XXXXX</div>
-                <div>📍 India</div>
+                <div style={{ fontFamily: "MyFont3" }}>
+                  📧 awdesigner.in@gmail.com
+                </div>
+                <div style={{ fontFamily: "MyFont3" }}>📱 +91 9960155654</div>
+                <div style={{ fontFamily: "MyFont3" }}>📍 India</div>
               </div>
             </StaggerItem>
 
             <StaggerItem>
               <div className="help-box">
                 <h4>What We Can Help With</h4>
-                <ul>
-                  <li>Architectural Design & Planning</li>
-                  <li>3D Visualization & Rendering</li>
-                  <li>Interior Design & Renovation</li>
-                  <li>Turnkey Project Execution</li>
-                  <li>Design Consultation</li>
+                <ul
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                  }}
+                >
+                  <li style={{ fontFamily: "MyFont3" }}>
+                    Architectural Design & Planning
+                  </li>
+                  <li style={{ fontFamily: "MyFont3" }}>
+                    3D Visualization & Rendering
+                  </li>
+                  <li style={{ fontFamily: "MyFont3" }}>
+                    Interior Design & Renovation
+                  </li>
+                  <li style={{ fontFamily: "MyFont3" }}>
+                    Turnkey Project Execution
+                  </li>
+                  <li style={{ fontFamily: "MyFont3" }}>Design Consultation</li>
                 </ul>
               </div>
             </StaggerItem>
@@ -77,9 +93,10 @@ export const Contact = () => {
             order: isMobile ? 1 : 2,
           }}
         >
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+        <form className="contact-form" action="https://formsubmit.co/awdesigner.in@gmail.com" method="POST" >
             <div className={isMobile ? "grid" : "grid grid--2"}>
               <input
+              name="Full-Name"
                 required
                 placeholder="Full Name *"
                 style={{
@@ -88,6 +105,7 @@ export const Contact = () => {
                 }}
               />
               <input
+               name="EmailId"
                 type="email"
                 required
                 placeholder="Email Address *"
@@ -99,13 +117,17 @@ export const Contact = () => {
             </div>
             <div className={isMobile ? "grid" : "grid grid--2"}>
               <input
-                placeholder="Phone Number"
+               name="PhoneNumber"
+                required
+                placeholder="Phone Number *"
                 style={{
                   marginBottom: isMobile ? "12px" : "10px",
                   fontSize: isMobile ? "16px" : "14px",
                 }}
               />
               <select
+              name="Work"
+                required
                 defaultValue=""
                 style={{
                   marginBottom: isMobile ? "12px" : "10px",
@@ -121,6 +143,7 @@ export const Contact = () => {
               </select>
             </div>
             <textarea
+              name="Description"
               placeholder="Tell us about your project..."
               rows={isMobile ? 4 : 6}
               style={{
