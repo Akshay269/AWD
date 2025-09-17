@@ -85,11 +85,11 @@ export const NeoHome: React.FC = () => {
 
       <SectionPanel id="about" title="About Us">
         <p>
-          I'm Ar. Apurva Wasule, founder of AW Designers — a studio built on a single vision: turning ideas into impactful spaces and visuals.
+          I'm Ar. Apurva Wasule, founder of AW Designer — a studio built on a single vision: turning ideas into impactful spaces and visuals.
           With 3+ years of experience and over 50 completed projects in 3D visualization and façade designing, I combine architectural precision with visual storytelling to shape spaces that resonate.
         </p>
         <p>
-          At AW Designers, we craft thoughtful, functional designs that respond to context and client aspirations. Under this umbrella, AW Renders brings those designs to life through high‑end 3D visualization — translating concepts into compelling, photorealistic experiences.
+          At AW Designer, we craft thoughtful, functional designs that respond to context and client aspirations. Under this umbrella, AW Renders brings those designs to life through high‑end 3D visualization — translating concepts into compelling, photorealistic experiences.
         </p>
       </SectionPanel>
 

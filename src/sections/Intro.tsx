@@ -4,7 +4,8 @@ import { FadeIn,SlideUp } from "../components/ScrollAnimations";
 import TypingText from "../components/TypingText";
 
 interface IntroProps {
-  videoSrc: string; 
+  desktopVideo: string;
+  mobileVideo: string;
   poster?: string;  
 }
 
@@ -46,8 +47,10 @@ const LazyVideo = ({
   return <video ref={ref} src={isVisible ? src : undefined} poster={poster} {...props} />;
 };
 
-export const Intro: React.FC<IntroProps> = ({ videoSrc, poster }) => {
+export const Intro: React.FC<IntroProps> = ({ desktopVideo, mobileVideo,poster }) => {
+
   const ref = useRef<HTMLDivElement>(null);
+
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isTablet = useMediaQuery("(max-width: 1024px)");
   const isLandscape = useMediaQuery("(orientation: landscape) and (max-height: 500px)");
@@ -78,7 +81,8 @@ export const Intro: React.FC<IntroProps> = ({ videoSrc, poster }) => {
       {/* Hero Video */}
       <motion.div className="hero__media" style={{ y, scale }}>
         <LazyVideo
-          src={videoSrc}
+        preload="auto"
+          src={isMobile ? mobileVideo : desktopVideo}
           poster={poster || ""}
           autoPlay
           loop
@@ -104,7 +108,7 @@ export const Intro: React.FC<IntroProps> = ({ videoSrc, poster }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           >
-            A.W Designers
+            A.W Designer
           </motion.h1>
         </FadeIn>
 
