@@ -1,4 +1,4 @@
-# AW Designer SPA
+# AW Designers SPA
 
 Single Page Application built with React (Vite + TypeScript).
 

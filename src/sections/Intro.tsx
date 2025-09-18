@@ -108,7 +108,7 @@ const LazyVideo = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           >
-            A.W Designer
+            A.W Designers
           </motion.h1>
         </FadeIn>
 

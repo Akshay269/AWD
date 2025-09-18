@@ -142,7 +142,7 @@ export const Navbar = () => {
                 width: isMobile ? "60px" : "90px",
                 height: "auto",
               }}
-              alt="AW Designer Logo"
+              alt="AW Designers Logo"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             />
@@ -155,7 +155,7 @@ export const Navbar = () => {
                 fontSize: isMobile ? "20px" : "30px",
               }}
             >
-              A.W Designer
+              A.W Designers
             </motion.a>
           </motion.div>
 
