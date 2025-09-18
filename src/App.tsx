@@ -1,6 +1,6 @@
 import "./styles.css";
 import { Navbar } from "./components/Navbar";
-import  Intro  from "./sections/Intro";
+import Intro from "./sections/Intro";
 import { LightboxProvider } from "./components/LightboxContext";
 import { Suspense, lazy } from "react";
 import { useInView } from "react-intersection-observer";
@@ -12,6 +12,7 @@ const Expertise = lazy(() => import("./sections/Expertise"));
 const Work = lazy(() => import("./sections/Work"));
 const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./sections/Footer"));
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Wrapper for intersection-based lazy rendering
 function LazySection({
@@ -39,44 +40,47 @@ function LazySection({
 
 function App() {
   return (
-    <LightboxProvider>
-      <div className="app-root">
-        <Navbar />
-        <main>
-          {/* Hero Section loads immediately */}
-          <Intro
-            desktopVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758097779/website_avhwvn.webm"
-            mobileVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758132494/website-mobile_vih5nc.webm"
-            poster=""
-          />
+    <>
+      <LightboxProvider>
+        <div className="app-root">
+          <Navbar />
+          <main>
+            {/* Hero Section loads immediately */}
+            <Intro
+              desktopVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758097779/website_avhwvn.webm"
+              mobileVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758132494/website-mobile_vih5nc.webm"
+              poster=""
+            />
 
-          {/* Lazy sections (load only when scrolled near) */}
-          <LazySection>
-            <CubeSection />
-          </LazySection>
+            {/* Lazy sections (load only when scrolled near) */}
+            <LazySection>
+              <CubeSection />
+            </LazySection>
 
-          <LazySection>
-            <About />
-          </LazySection>
+            <LazySection>
+              <About />
+            </LazySection>
 
-          <LazySection>
-            <Expertise />
-          </LazySection>
+            <LazySection>
+              <Expertise />
+            </LazySection>
 
-          <LazySection>
-            <Work />
-          </LazySection>
+            <LazySection>
+              <Work />
+            </LazySection>
 
-          <LazySection>
-            <Contact />
-          </LazySection>
+            <LazySection>
+              <Contact />
+            </LazySection>
 
-          <LazySection>
-            <Footer />
-          </LazySection>
-        </main>
-      </div>
-    </LightboxProvider>
+            <LazySection>
+              <Footer />
+            </LazySection>
+          </main>
+        </div>
+      </LightboxProvider>
+      <SpeedInsights />
+    </>
   );
 }
 
