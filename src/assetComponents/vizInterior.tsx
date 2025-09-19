@@ -11,7 +11,7 @@ export const vizInterior: MediaItem[]=[
   {
     type:"image",
     src:"https://res.cloudinary.com/dsgbgr8or/image/upload/v1758114315/WhatsApp_Image_2025-09-17_at_4.31.18_PM_nblgbi.jpg",
-    caption:"Metro shoe set | Mumbai"
+    caption:"Metro shoe set | Mumbai | Ar. Himanshu Sahu"
   },
   {
     type: "image",
