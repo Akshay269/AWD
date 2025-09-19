@@ -49,7 +49,7 @@ function App() {
             <Intro
               desktopVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758097779/website_avhwvn.webm"
               mobileVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/v1758132494/website-mobile_vih5nc.webm"
-              poster=""
+              poster="https://res.cloudinary.com/dsgbgr8or/image/upload/v1758273485/LOGO_uhfbf5.png"
             />
 
             {/* Lazy sections (load only when scrolled near) */}
