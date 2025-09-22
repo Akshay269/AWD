@@ -83,7 +83,7 @@ const LazyVideo = ({
         <LazyVideo
         preload="auto"
           src={isMobile ? mobileVideo : desktopVideo}
-          poster={poster || ""}
+          poster={poster}
           autoPlay
           loop
           muted

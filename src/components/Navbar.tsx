@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-
 const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
 
@@ -25,35 +24,39 @@ export const Navbar = () => {
   const isMobile = useMediaQuery("(max-width: 900px)");
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 8);
-    onScroll();
+    const hero = document.getElementById("intro"); // your hero section ID
+
+    const onScroll = () => {
+      if (!hero) return;
+
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+      setIsScrolled(window.scrollY > heroBottom - 56); // 64 = navbar height
+    };
+
+    onScroll(); // run once on mount
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Track active section by picking the section whose center is closest to viewport center
   useEffect(() => {
     const ids = ["intro", "about", "expertise", "work", "contact"];
 
     const compute = () => {
-      const vh = window.innerHeight || 1;
-      const viewCenter = vh / 2;
-      let bestId = ids[0];
-      let bestDist = Number.POSITIVE_INFINITY;
+      let current = ids[0];
+
       for (const id of ids) {
         const el = document.getElementById(id);
         if (!el) continue;
+
         const rect = el.getBoundingClientRect();
-        // skip if completely out of view
-        if (rect.bottom <= 0 || rect.top >= vh) continue;
-        const sectionCenter = rect.top + rect.height / 2;
-        const dist = Math.abs(sectionCenter - viewCenter);
-        if (dist < bestDist) {
-          bestDist = dist;
-          bestId = id;
+
+        // If the section top is at or above 80px from viewport top, it's active
+        if (rect.top <= 80) {
+          current = id;
         }
       }
-      setActiveSection(bestId);
+
+      setActiveSection(current);
     };
 
     let ticking = false;
@@ -223,7 +226,6 @@ export const Navbar = () => {
               <motion.a
                 key={item.id}
                 href={item.href}
-               
                 onClick={handleNavClick}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
