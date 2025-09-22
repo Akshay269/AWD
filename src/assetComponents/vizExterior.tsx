@@ -113,7 +113,7 @@ export const vizExterior: MediaItem[]=[
    {
     type: "image",
     src: "https://res.cloudinary.com/dsgbgr8or/image/upload/v1757688326/15_ik8wqb.webp",
-    caption: "FarmHouse | Pench M.P | A.W Designers",
+    caption: "FarmHouse | Pench M.P | AW Designers",
   },
    {
     type: "image",

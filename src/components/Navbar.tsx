@@ -158,7 +158,7 @@ export const Navbar = () => {
                 fontSize: isMobile ? "20px" : "30px",
               }}
             >
-              A.W Designers
+              AW Designers
             </motion.a>
           </motion.div>
 
