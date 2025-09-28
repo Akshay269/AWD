@@ -47,9 +47,9 @@ function App() {
           <main>
             {/* Hero Section loads immediately */}
             <Intro
-              desktopVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/q_auto,f_auto,w_1920/v1758097779/website_avhwvn.webm"
-              mobileVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/q_auto,f_auto,w_640/v1758132494/website-mobile_vih5nc.webm"
-              poster="https://res.cloudinary.com/dsgbgr8or/image/upload/q_auto,f_auto,w_1200/v1758273485/LOGO_uhfbf5.png"
+              desktopVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/f_auto,q_auto:best,w_auto,dpr_auto/v1758097779/website_avhwvn.webm"
+              mobileVideo="https://res.cloudinary.com/dsgbgr8or/video/upload/f_auto,q_auto:best,w_auto,dpr_auto/v1758132494/website-mobile_vih5nc.webm"
+              poster="https://res.cloudinary.com/dsgbgr8or/image/upload/f_auto,q_auto:best,w_auto,dpr_auto/v1758273485/LOGO_uhfbf5.png"
             />
 
             {/* Lazy sections (load only when scrolled near) */}
