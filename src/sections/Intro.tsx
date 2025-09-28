@@ -81,7 +81,6 @@ const LazyVideo = ({
       {/* Hero Video */}
       <motion.div className="hero__media" style={{ y, scale }}>
         <LazyVideo
-        preload="auto"
           src={isMobile ? mobileVideo : desktopVideo}
           poster={poster}
           autoPlay
