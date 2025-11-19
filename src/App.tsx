@@ -7,11 +7,16 @@ import { useInView } from "react-intersection-observer";
 
 // Lazy load sections
 const CubeSection = lazy(() => import("./sections/CubeSection"));
-const About = lazy(() => import("./sections/About"));
-const Expertise = lazy(() => import("./sections/Expertise"));
-const Work = lazy(() => import("./sections/Work"));
-const Contact = lazy(() => import("./sections/Contact"));
-const Footer = lazy(() => import("./sections/Footer"));
+import About from "./sections/About";
+import Expertise from "./sections/Expertise";
+import Work from "./sections/Work";
+import Contact from "./sections/Contact";
+import Footer from "./sections/Footer";
+// const About =  import("./sections/About");
+// const Expertise =  import("./sections/Expertise");
+// const Work = import("./sections/Work");
+// const Contact =  import("./sections/Contact");
+// const Footer =  import("./sections/Footer");
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Wrapper for intersection-based lazy rendering
@@ -57,25 +62,25 @@ function App() {
               <CubeSection />
             </LazySection>
 
-            <LazySection>
-              <About />
-            </LazySection>
+            {/* <LazySection> */}
+            <About />
+            {/* </LazySection> */}
 
-            <LazySection>
-              <Expertise />
-            </LazySection>
+            {/* <LazySection> */}
+            <Expertise />
+            {/* </LazySection> */}
 
-            <LazySection>
-              <Work />
-            </LazySection>
+            {/* <LazySection> */}
+            <Work />
+            {/* </LazySection> */}
 
-            <LazySection>
-              <Contact />
-            </LazySection>
+            {/* <LazySection> */}
+            <Contact />
+            {/* </LazySection> */}
 
-            <LazySection>
-              <Footer />
-            </LazySection>
+            {/* <LazySection> */}
+            <Footer />
+            {/* </LazySection> */}
           </main>
         </div>
       </LightboxProvider>

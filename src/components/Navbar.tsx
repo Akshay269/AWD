@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const useMediaQuery = (query: string) => {
@@ -23,69 +23,52 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 900px)");
 
+  const navItems = useMemo(
+    () => [
+      { href: "#intro", label: "Intro", id: "intro" },
+      { href: "#about", label: "About Us", id: "about" },
+      { href: "#expertise", label: "Our Expertise", id: "expertise" },
+      { href: "#work", label: "Our Creation", id: "work" },
+      { href: "#contact", label: "Contact", id: "contact" },
+    ],
+    []
+  );
+
   useEffect(() => {
-    const hero = document.getElementById("intro"); // your hero section ID
-
     const onScroll = () => {
-      if (!hero) return;
-
-      const heroBottom = hero.offsetTop + hero.offsetHeight;
-      setIsScrolled(window.scrollY > heroBottom - 56); // 64 = navbar height
+      setIsScrolled(window.scrollY > 50);
     };
-
-    onScroll(); // run once on mount
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    const ids = ["intro", "about", "expertise", "work", "contact"];
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px", // Activates when section is in middle of screen
+      threshold: 0,
+    };
 
-    const compute = () => {
-      let current = ids[0];
-
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (!el) continue;
-
-        const rect = el.getBoundingClientRect();
-
-        // If the section top is at or above 80px from viewport top, it's active
-        if (rect.top <= 80) {
-          current = id;
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
         }
-      }
-
-      setActiveSection(current);
+      });
     };
 
-    let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(() => {
-          ticking = false;
-          compute();
-        });
-      }
-    };
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
-    compute();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
+    navItems.forEach((item) => {
+      const element = document.getElementById(item.id);
+      if (element) observer.observe(element);
+    });
 
-  const navItems = [
-    { href: "#intro", label: "Intro", id: "intro" },
-    { href: "#about", label: "About Us", id: "about" },
-    { href: "#expertise", label: "Our Expertise", id: "expertise" },
-    { href: "#work", label: "Our Creation", id: "work" },
-    { href: "#contact", label: "Contact", id: "contact" },
-  ];
+    return () => observer.disconnect();
+  }, [navItems]);
 
   // Close mobile menu when clicking on a nav item
   const handleNavClick = () => {
@@ -125,7 +108,7 @@ export const Navbar = () => {
         initial={false}
         animate={{ y: 0 }}
         transition={{ duration: 0.2 }}
-        style={{ position: "fixed", top: 0, left: 0, right: 0 }}
+        style={{ position: "fixed", top: 0, left: 0, right: 0,zIndex:1000 }}
       >
         <div className="navbar__inner" style={{ maxWidth: "100%" }}>
           <motion.div
@@ -212,8 +195,7 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Navigation Menu */}
-      </motion.header>
-      <AnimatePresence>
+        <AnimatePresence>
         {isMobile && isMobileMenuOpen && (
           <motion.nav
             className="nav nav--open"
@@ -247,6 +229,8 @@ export const Navbar = () => {
           </motion.nav>
         )}
       </AnimatePresence>
+      </motion.header>
+      
     </>
   );
 };
