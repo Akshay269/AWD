@@ -1859,7 +1859,7 @@ main {
 }
 .lightbox__inner {
   position: relative;
-  width: min(90vw, 450px);
+  width: min(90vw, 570px);
   max-width: 100%;
   max-height: none;             /* full height inside overlay */
   background: #0b0d10;
